@@ -5,6 +5,7 @@ playButton.addEventListener("click", () => {
     let computerWeapon = weaponList[Math.floor(Math.random() * weaponList.length)].value;
     let playerWeapon = document.querySelector('input[name="weapon"]:checked').value;
     let playAgain = document.createElement("button")
+    playButton.disabled = true;
     playAgain.textContent = "Play again?"
     playAgain.addEventListener("click", () => {
         window.location.reload();
