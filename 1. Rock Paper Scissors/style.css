@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: monospace;
+    background-color: rgb(255, 212, 218)
+}
+
+h2 {
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 1ch;
+}
+
+h4 {
+    text-align: center;
+    max-width: 60%;
+    margin: auto;
+    font-style: italic;
+    padding: 1ch;
+    letter-spacing: 1px;
+    color: rgb(68, 68, 68);
+}
+
+.player-weapons {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    box-shadow: lightcoral 2px 2px;
+    max-width: 35%;
+    margin: auto;
+    padding: 1ch;
+    text-align: justify;
+}
+
+.player-weapons input {
+    margin: 2ch;
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 2ch;
+    background-color: darkred;
+    border: darkred solid;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: monospace;
+}

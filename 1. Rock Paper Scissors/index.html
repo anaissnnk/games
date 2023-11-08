@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <button class="rock"></button>
-    <button class="paper"></button>
-    <button class="scissors"></button>
-
+<!-- player box -->
+    <div class="player-selection">
+        <h2>Choose your weapon of mass destruction:</h2>
+        <h4>It's not a game, Bobby.</h4>
+        <!-- choose your weapon -->
+        <div class="player-weapons">
+        <label for="rock">
+            <input type="radio" name="rock" id="rock">🪨 A rock! A rock! A great, big, beautiful rock!</label>
+        <label for="paper">
+            <input type="radio" name="paper" id="paper">✋ The quiet hero that wraps up victories!</label>
+        <label for="scissors">
+            <input type="radio" name="scissors" id="scissors">✂️ Cut to the chase and shred the competition!</label>
+        </div><br>
+        <!-- fight computer -->
+        <div class="computer-choice">
+        <button class="play">Fight now, or perish.</button>
+        </div>
+    </div>
 <script defer src="script.js"></script>
 </body>
 </html>
