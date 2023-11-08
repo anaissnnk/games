@@ -54,3 +54,10 @@ button {
     cursor: pointer;
     font-family: monospace;
 }
+
+p {
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 2ch;
+}
