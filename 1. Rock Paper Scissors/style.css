@@ -55,9 +55,42 @@ button {
     font-family: monospace;
 }
 
-p {
+.playAgain {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 1ch;
+    background-color: coral;
+    border: coral solid;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+
+.drawMessage {
     max-width: 80%;
     text-align: center;
     margin: auto;
     padding: 2ch;
+    color: black;
+}
+
+.winMessage {
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 2ch;
+    color: rgb(81, 120, 24);
+}
+
+.lostMessage {
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 2ch;
+    color: darkred;
 }

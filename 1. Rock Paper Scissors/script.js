@@ -13,31 +13,35 @@ playButton.addEventListener("click", () => {
     /* draw message*/
     if (playerWeapon === computerWeapon) {
         let drawMessage = document.createElement("p");
-        drawMessage.textContent = "You and the enemy bonked each other's head. Legends say you're still going at it without seeing an end to it.";
+        drawMessage.classList.add("drawMessage");
+        drawMessage.textContent = "You and your enemy bonked each other's head. There's no end to it.";
         document.body.append(drawMessage);
         document.body.append(playAgain);   
+        playAgain.classList.add("playAgain");
     } 
     /* you win message*/
     else if (playerWeapon === "rock" && computerWeapon === "scissors" ||
             playerWeapon ==="paper" && computerWeapon === "rock" ||
-            playerWeapon === "scissors" && computeWeapon === "paper") {
+            playerWeapon === "scissors" && computerWeapon === "paper") {
                 let winMessage = document.createElement("p");
-                winMessage.textContent = "You fought, bonked the enemy on the head, and won.";
+                winMessage.classList.add("winMessage");
+                winMessage.textContent = "You fought, bonked your enemy on the head, and won.";
                 document.body.append(winMessage);
                 document.body.append(playAgain);
+                playAgain.classList.add("playAgain");
             } /* you lose message*/
             else if (playerWeapon === "rock" && computerWeapon === "paper" ||
             playerWeapon ==="paper" && computerWeapon === "scissors" ||
             playerWeapon === "scissors" && computeWeapon === "rock") {
                 let lostMessage = document.createElement("p");
+                lostMessage.classList.add("lostMessage");
                 lostMessage.textContent = "You, fought, got bonked on the head, and perished."
                 document.body.append(lostMessage);
                 document.body.append(playAgain);
+                playAgain.classList.add("playAgain");
             }
 });
 
-
-/*second part*/
 
 
 
