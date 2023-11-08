@@ -33,7 +33,7 @@ playButton.addEventListener("click", () => {
             } /* you lose message*/
             else if (playerWeapon === "rock" && computerWeapon === "paper" ||
             playerWeapon ==="paper" && computerWeapon === "scissors" ||
-            playerWeapon === "scissors" && computeWeapon === "rock") {
+            playerWeapon === "scissors" && computerWeapon === "rock") {
                 let lostMessage = document.createElement("p");
                 lostMessage.classList.add("lostMessage");
                 lostMessage.textContent = "You, fought, got bonked on the head, and perished."
