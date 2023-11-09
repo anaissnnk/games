@@ -67,22 +67,45 @@ const cardDeck = [
 
 ];
 
-//FIRST PART
-//draw card function
-function drawCard() {
+//player draws function
+function playerDrawsCard() {
     let playerCard = document.createElement("span");
     playerCard.classList.add("player-card");
-    let randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)].value;
-    playerCard.textContent = randomCard;
+    let playerRandomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)].value;
+    playerCard.textContent = playerRandomCard;
     let playerHand = document.querySelectorAll("section")[1];
     playerHand.appendChild(playerCard);
+    let playerTotal = 0;
+    let playerCards = document.querySelectorAll(".player-card");
+    playerCards.forEach(card => {
+        let cardValue = parseInt(card.textContent);
+        playerTotal += cardValue;
+    });
 };
-  
+
+
+//computer draws function
+function computerDrawsCard() {
+    let computerCard = document.createElement("span");
+    computerCard.classList.add("computer-card");
+    let computerRandomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)].value;
+    computerCard.textContent = computerRandomCard;
+    let computerHand = document.querySelectorAll("section")[2];
+    computerHand.appendChild(computerCard);    
+    let computerTotal = 0;
+    let computerCards = document.querySelectorAll(".computer-card");
+    computerCards.forEach(card => {
+        let cardValue = parseInt(card.textContent);
+        computerTotal += cardValue;
+    });
+};
+
 let playButton = document.querySelector("button");
 
 playButton.addEventListener("click", () => {
     //game start
-    drawCard();
+    playerDrawsCard();
+    computerDrawsCard();
     //disable start button after use
     playButton.disabled = true;
     if (playButton.disabled = true) {
@@ -96,15 +119,16 @@ playButton.addEventListener("click", () => {
     gameControls.appendChild(drawButton);
     //second card
     drawButton.addEventListener ("click", () => {
-        drawCard();
+        playerDrawsCard();
+        computerDrawsCard();
     });
+
 });
 
 
 
-
-
-
-//TODO:If yes, add a card (a random number from the possible cards, you don't need to "remove" the card for now)
-//TODO:Tell him if he bust or not
-
+//TODO:Make the PC also draw a card and decide to quit or not.
+//TODO:Try not to make the PC cheat, make some AI to play "intelligently"
+//TODO:Alternatively, use the default casino rule: the dealer keeps drawing until he reaches 15
+//TODO:When both players stop or bust ask if the player wants to play another round
+//TODO:Update the user what happens all the time with prompts and alerts

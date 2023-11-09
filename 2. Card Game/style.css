@@ -82,3 +82,13 @@ h2 {
     background-color: rgb(69, 69, 69);
     cursor: not-allowed;
 }
+
+.computer-card {
+    display: flex;
+    flex-direction: column;
+    background-color: lightcoral;
+    padding: 1ch;
+    max-width: 40%;
+    margin: auto;
+    text-align: center;
+}
