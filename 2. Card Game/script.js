@@ -90,6 +90,22 @@ function computerDrawsCard() {
     computerHand.appendChild(computerCard);    
 };
 
+//stop button
+function stopDrawing() {
+    let stopButton = document.createElement("button");
+    stopButton.textContent = "Stop here"
+    stopButton.classList.add("stop-button");
+    gameControls.append(stopButton);
+    stopButton.addEventListener("click", () => {
+    announcingWinner();
+    drawButton.disabled = true
+    if (drawButton.disabled = true) {
+    drawButton.classList.add("disabled");
+    }
+});
+}
+
+
 //announcing winner function
 function announcingWinner() {
     //player total
@@ -110,18 +126,18 @@ function announcingWinner() {
     let resultAnnouncement = document.createElement("span");
     //player reaches 21
     if (playerTotal === 21) {
-        resultAnnouncement.textContent = "You won!";
+        resultAnnouncement.textContent = "You reached 21!";
         announcementSection.appendChild(resultAnnouncement);
     } else if (computerTotal === 21) {
-        resultAnnouncement.textContent = "You lost!";
+        resultAnnouncement.textContent = "The opponent reached 21!";
         announcementSection.appendChild(resultAnnouncement);
     }
     else if (playerTotal > 21) {
-        resultAnnouncement.textContent = "You lost!";
+        resultAnnouncement.textContent = "You went over 21!";
         announcementSection.appendChild(resultAnnouncement);
     }
     else if (computerTotal > 21) {
-        resultAnnouncement.textContent = "You won!";
+        resultAnnouncement.textContent = "The opponent went over 21!";
         announcementSection.appendChild(resultAnnouncement);
     }
 }
@@ -142,15 +158,11 @@ playButton.addEventListener("click", () => {
     drawButton.textContent = "Draw again?"
     drawButton.classList.add("draw-button");
     let gameControls = document.querySelectorAll("section")[3];
-    gameControls.appendChild(drawButton);
+    gameControls.appendChild(drawButton);    
     //second card
     drawButton.addEventListener ("click", () => {
         playerDrawsCard();
-    //stop button
-    let stopButton = document.createElement("button");
-    stopButton.textContent = "Stop here"
-    stopButton.classList.add("stop-button");
-    gameControls.append(stopButton);
+        announcingWinner();
     //computer total
     let computerTotal = 0;
     let computerCards = document.querySelectorAll(".computer-card");
@@ -160,10 +172,7 @@ playButton.addEventListener("click", () => {
     });
     if (computerTotal < 15) {
         computerDrawsCard();
-    } else {
-        // Both the player and computer stop drawing cards
-        announcingWinner(); // Call announcingWinner to announce the winner
-    }
+    };
 });
 });
 
