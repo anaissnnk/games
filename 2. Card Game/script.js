@@ -99,10 +99,17 @@ function announcingWinner() {
         let cardValue = parseInt(card.textContent);
         playerTotal += cardValue;
     });
+    //computer total
+    let computerTotal = 0;
+    let computerCards = document.querySelectorAll(".computer-card");
+    computerCards.forEach(card => {
+    let cardValue = parseInt(card.textContent);
+    computerTotal += cardValue;
+    });
     //player reaches 21
     if (playerTotal === 21) {
         let announcementSection = document.querySelectorAll("section")[4];
-        let winAnnouncement = doument.createElement("span");
+        let winAnnouncement = document.createElement("span");
         winAnnouncement.textContent = "You won!";
         announcementSection.appendChild(winAnnouncement);
     }
