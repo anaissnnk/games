@@ -72,11 +72,20 @@ const cardDeck = [
 let playButton = document.querySelector("button");
 
 playButton.addEventListener("click", () => {
-    let playerHand = document.createElement("section");
-    playerHand.classList.add("player-card");
-    document.body.append(playerHand);
+    //game start
+    let playerCard = document.createElement("text");
+    playerCard.classList.add("player-card");
     let randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)].value;
-    playerHand.textContent = randomCard;
+    playerCard.textContent = randomCard;
+    let playerHand = document.querySelectorAll("section")[1];
+    playerHand.appendChild(playerCard);
+    playButton.disabled = true;
+    //redraw 1st
+    let drawButton = document.createElement("button");
+    drawButton.textContent = "Draw again?"
+    drawButton.classList.add("draw-button");
+    document.body.append(drawButton);
+
 });
 
 
