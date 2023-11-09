@@ -146,6 +146,11 @@ playButton.addEventListener("click", () => {
     //second card
     drawButton.addEventListener ("click", () => {
         playerDrawsCard();
+    //stop button
+    let stopButton = document.createElement("button");
+    stopButton.textContent = "Stop here"
+    stopButton.classList.add("stop-button");
+    gameControls.append(stopButton);
     //computer total
     let computerTotal = 0;
     let computerCards = document.querySelectorAll(".computer-card");
