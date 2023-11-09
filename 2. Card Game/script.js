@@ -68,24 +68,36 @@ const cardDeck = [
 ];
 
 //FIRST PART
-//TODO:Ask the user if he wants to draw a card
-let playButton = document.querySelector("button");
-
-playButton.addEventListener("click", () => {
-    //game start
-    let playerCard = document.createElement("text");
+//draw card function
+function drawCard() {
+    let playerCard = document.createElement("span");
     playerCard.classList.add("player-card");
     let randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)].value;
     playerCard.textContent = randomCard;
     let playerHand = document.querySelectorAll("section")[1];
     playerHand.appendChild(playerCard);
+};
+  
+let playButton = document.querySelector("button");
+
+playButton.addEventListener("click", () => {
+    //game start
+    drawCard();
+    //disable start button after use
     playButton.disabled = true;
-    //redraw 1st
+    if (playButton.disabled = true) {
+        playButton.classList.add("disabled");
+    }
+    //draw button
     let drawButton = document.createElement("button");
     drawButton.textContent = "Draw again?"
     drawButton.classList.add("draw-button");
-    document.body.append(drawButton);
-
+    let gameControls = document.querySelectorAll("section")[3];
+    gameControls.appendChild(drawButton);
+    //second card
+    drawButton.addEventListener ("click", () => {
+        drawCard();
+    });
 });
 
 
