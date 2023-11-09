@@ -5,19 +5,64 @@
     background-color: beige;
 }
 
-.row {
+.game-display {
     display: flex;
     flex: 1;
+    justify-content: center;
     padding: 2ch;
     gap: 3ch;
-    max-width: 70%;
+    max-width: 50%;
     margin: auto;
 }
 
 .player-hand {
     background-color: lightpink;
+    margin: 1ch;
+    padding: 1ch;
 }
 
 .computer-hand {
     background-color: lightcoral;
+    margin: 1ch;
+    padding: 1ch;
+}
+
+h2 {
+    text-align: center;
+    margin: 1ch;
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 30%;
+    margin: auto;
+    padding: 1ch;
+}
+
+.start {
+    flex-direction: column;
+    cursor: pointer;
+    background-color: darkred;
+    color: beige;
+    border-radius: rgb(88, 22, 22) 5px;
+}
+
+.card-deck {
+    background-color: white;
+    margin: 1px;
+}
+
+.player-card {
+    display: flex;
+    flex-direction: column;
+    background-color: lightpink;
+    padding: 1ch;
+    max-width: 40%;
+    margin: auto;
+    text-align: center;
 }
