@@ -150,6 +150,13 @@ playButton.addEventListener("click", () => {
     stopButton.textContent = "Stop here"
     stopButton.classList.add("stop-button");
     gameControls.append(stopButton);
+    stopButton.addEventListener("click", () => {
+        announcingWinner();
+        drawButton.disabled = true
+        if (drawButton.disabled = true) {
+        drawButton.classList.add("disabled");
+        }
+    });
     //second card
     drawButton.addEventListener ("click", () => {
         playerDrawsCard();
