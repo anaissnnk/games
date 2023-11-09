@@ -90,20 +90,6 @@ function computerDrawsCard() {
     computerHand.appendChild(computerCard);    
 };
 
-//stop button
-function stopDrawing() {
-    let stopButton = document.createElement("button");
-    stopButton.textContent = "Stop here"
-    stopButton.classList.add("stop-button");
-    gameControls.append(stopButton);
-    stopButton.addEventListener("click", () => {
-    announcingWinner();
-    drawButton.disabled = true
-    if (drawButton.disabled = true) {
-    drawButton.classList.add("disabled");
-    }
-});
-}
 
 
 //announcing winner function
@@ -158,11 +144,23 @@ playButton.addEventListener("click", () => {
     drawButton.textContent = "Draw again?"
     drawButton.classList.add("draw-button");
     let gameControls = document.querySelectorAll("section")[3];
-    gameControls.appendChild(drawButton);    
+    gameControls.appendChild(drawButton);
+    //stop button
+    let stopButton = document.createElement("button");
+    stopButton.textContent = "Stop here"
+    stopButton.classList.add("stop-button");
+    gameControls.append(stopButton);
     //second card
     drawButton.addEventListener ("click", () => {
         playerDrawsCard();
         announcingWinner();
+        stopButton.addEventListener("click", () => {
+            announcingWinner();
+            drawButton.disabled = true
+            if (drawButton.disabled = true) {
+            drawButton.classList.add("disabled");
+            }
+        });
     //computer total
     let computerTotal = 0;
     let computerCards = document.querySelectorAll(".computer-card");
