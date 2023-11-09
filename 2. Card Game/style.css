@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background-color: beige;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+    padding: 2ch;
+    gap: 3ch;
+    max-width: 70%;
+    margin: auto;
+}
+
+.player-hand {
+    background-color: lightpink;
+}
+
+.computer-hand {
+    background-color: lightcoral;
+}
