@@ -106,12 +106,23 @@ function announcingWinner() {
     let cardValue = parseInt(card.textContent);
     computerTotal += cardValue;
     });
+    let announcementSection = document.querySelectorAll("section")[4];
+    let resultAnnouncement = document.createElement("span");
     //player reaches 21
     if (playerTotal === 21) {
-        let announcementSection = document.querySelectorAll("section")[4];
-        let winAnnouncement = document.createElement("span");
-        winAnnouncement.textContent = "You won!";
-        announcementSection.appendChild(winAnnouncement);
+        resultAnnouncement.textContent = "You won!";
+        announcementSection.appendChild(resultAnnouncement);
+    } else if (computerTotal === 21) {
+        resultAnnouncement.textContent = "You lost!";
+        announcementSection.appendChild(resultAnnouncement);
+    }
+    else if (playerTotal > 21) {
+        resultAnnouncement.textContent = "You lost!";
+        announcementSection.appendChild(resultAnnouncement);
+    }
+    else if (computerTotal > 21) {
+        resultAnnouncement.textContent = "You won!";
+        announcementSection.appendChild(resultAnnouncement);
     }
 }
 
@@ -144,9 +155,18 @@ playButton.addEventListener("click", () => {
     });
     if (computerTotal < 15) {
         computerDrawsCard();
-        }
-    });
+    } else {
+        // Both the player and computer stop drawing cards
+        announcingWinner(); // Call announcingWinner to announce the winner
+    }
 });
+});
+
+
+
+
+
+
 
 
 
