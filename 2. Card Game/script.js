@@ -115,15 +115,19 @@ function announcingWinner() {
         resultAnnouncement.textContent = "You reached 21!";
         announcementSection.appendChild(resultAnnouncement);
     } else if (computerTotal === 21) {
-        resultAnnouncement.textContent = "The opponent reached 21!";
+        resultAnnouncement.textContent = "The opponent reached 21! You lost!";
         announcementSection.appendChild(resultAnnouncement);
     }
     else if (playerTotal > 21) {
-        resultAnnouncement.textContent = "You went over 21!";
+        resultAnnouncement.textContent = "You went over 21! The opponent wins!";
         announcementSection.appendChild(resultAnnouncement);
     }
     else if (computerTotal > 21) {
-        resultAnnouncement.textContent = "The opponent went over 21!";
+        resultAnnouncement.textContent = "The opponent went over 21! You win!";
+        announcementSection.appendChild(resultAnnouncement);
+    }
+    else if (computerTotal == playerTotal) {
+        resultAnnouncement.textContent = "It's a draw!";
         announcementSection.appendChild(resultAnnouncement);
     }
 }

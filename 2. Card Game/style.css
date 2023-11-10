@@ -30,6 +30,17 @@ h2 {
     margin: 1ch;
 }
 
+img {
+    max-width: 15%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .game-controls {
     display: flex;
     flex-direction: row;
@@ -126,4 +137,37 @@ span {
     max-width: 20%;
     margin: auto;
     background-color: white;
+}
+
+.player-card {
+    background-color: white;
+    margin: 1ch;
+}
+
+.computer-card {
+    background-color: white;
+    margin: 1ch;
+}
+
+.rules {
+    border: coral 2px dotted;
+    max-width: 40%;
+    margin: auto;
+    text-align: justify;
+    gap: 1px;
+    border-radius: 10px;
+}
+
+.rules h3 {
+    text-align: center;
+    margin: 1ch;
+    font-family: 'Courier New';
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    font-size: medium;
+    color: coral;
+}
+
+.rules li {
+    margin: 2ch;
 }
