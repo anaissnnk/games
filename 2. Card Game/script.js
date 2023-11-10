@@ -108,26 +108,22 @@ function announcingWinner() {
     let cardValue = parseInt(card.textContent);
     computerTotal += cardValue;
     });
-    let announcementSection = document.querySelectorAll("section")[4];
+    let announcementSection = document.querySelectorAll("section")[5];
     let resultAnnouncement = document.createElement("span");
     //player reaches 21
     if (playerTotal === 21) {
         resultAnnouncement.textContent = "You reached 21!";
         announcementSection.appendChild(resultAnnouncement);
     } else if (computerTotal === 21) {
-        resultAnnouncement.textContent = "The opponent reached 21! You lost!";
+        resultAnnouncement.textContent = "Your opponent reached 21! You lost!";
         announcementSection.appendChild(resultAnnouncement);
     }
     else if (playerTotal > 21) {
-        resultAnnouncement.textContent = "You went over 21! The opponent wins!";
+        resultAnnouncement.textContent = "You went over 21! Your opponent wins!";
         announcementSection.appendChild(resultAnnouncement);
     }
     else if (computerTotal > 21) {
-        resultAnnouncement.textContent = "The opponent went over 21! You win!";
-        announcementSection.appendChild(resultAnnouncement);
-    }
-    else if (computerTotal == playerTotal) {
-        resultAnnouncement.textContent = "It's a draw!";
+        resultAnnouncement.textContent = "Your opponent went over 21! You win!";
         announcementSection.appendChild(resultAnnouncement);
     }
 }
@@ -143,12 +139,23 @@ playButton.addEventListener("click", () => {
     if (playButton.disabled = true) {
         playButton.classList.add("disabled");
     }
+
     //draw button
     let drawButton = document.createElement("button");
     drawButton.textContent = "Draw again?"
     drawButton.classList.add("draw-button");
     let gameControls = document.querySelectorAll("section")[3];
     gameControls.appendChild(drawButton);
+
+    //log first card
+    function logEntry () {
+        let logSection = document.querySelectorAll("section")[4];
+        let logEntry = document.createElement("span");
+        logSection.appendChild(logEntry);
+        logEntry.textContent = "You and your opponent drew your first card." 
+    };
+    logEntry();
+
     //stop button
     let stopButton = document.createElement("button");
     stopButton.textContent = "Stop here"
@@ -173,7 +180,7 @@ playButton.addEventListener("click", () => {
         computerTotal += cardValue;
         });
 
-        let announcementSection = document.querySelectorAll("section")[4];
+        let announcementSection = document.querySelectorAll("section")[5];
         let resultAnnouncement = document.createElement("span");
 
         if (playerTotal > computerTotal && playerTotal <= 21) {
@@ -189,6 +196,13 @@ playButton.addEventListener("click", () => {
         if (stopButton.disabled = true) {
             stopButton.classList.add("disabled");
         };
+        function logEntry () {
+            let logSection = document.querySelectorAll("section")[4];
+            let logEntry = document.createElement("span");
+            logSection.appendChild(logEntry);
+            logEntry.textContent = "You stopped drawing." 
+        };
+        logEntry();
         //play again button
         let replayButton = document.createElement("button");
         replayButton.textContent = "Replay?"
@@ -203,6 +217,13 @@ playButton.addEventListener("click", () => {
     //second card
     drawButton.addEventListener ("click", () => {
         playerDrawsCard();
+        function logEntry () {
+            let logSection = document.querySelectorAll("section")[4];
+            let logEntry = document.createElement("span");
+            logSection.appendChild(logEntry);
+            logEntry.textContent = "You drew a card." 
+        };
+        logEntry();
         announcingWinner();
         stopButton.addEventListener("click", () => {
             announcingWinner();
@@ -220,17 +241,13 @@ playButton.addEventListener("click", () => {
     });
     if (computerTotal < 15) {
         computerDrawsCard();
+        function logEntry () {
+            let logSection = document.querySelectorAll("section")[4];
+            let logEntry = document.createElement("span");
+            logSection.appendChild(logEntry);
+            logEntry.textContent = "Your opponent drew a card." 
+        };
+        logEntry();
     };
 });
 });
-
-
-
-
-
-
-
-
-
-
-//TODO:Update the user what happens all the time with prompts and alerts
