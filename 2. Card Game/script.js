@@ -151,12 +151,51 @@ playButton.addEventListener("click", () => {
     stopButton.classList.add("stop-button");
     gameControls.append(stopButton);
     stopButton.addEventListener("click", () => {
-        announcingWinner();
-        drawButton.disabled = true
+        drawButton.disabled = true;
         if (drawButton.disabled = true) {
         drawButton.classList.add("disabled");
+        };
+        let playerTotal = 0;
+        let playerCards = document.querySelectorAll(".player-card");
+        playerCards.forEach(card => {
+            let cardValue = parseInt(card.textContent);
+            playerTotal += cardValue;
+        });
+        //computer total
+        let computerTotal = 0;
+        let computerCards = document.querySelectorAll(".computer-card");
+        computerCards.forEach(card => {
+        let cardValue = parseInt(card.textContent);
+        computerTotal += cardValue;
+        });
+
+        let announcementSection = document.querySelectorAll("section")[4];
+        let resultAnnouncement = document.createElement("span");
+
+        if (playerTotal > computerTotal && playerTotal <= 21) {
+            resultAnnouncement.textContent = "You won!";
+            announcementSection.appendChild(resultAnnouncement);
         }
+        else if (computerTotal > playerTotal && computerTotal <= 21) {
+            resultAnnouncement.textContent = "You lost!";
+            announcementSection.appendChild(resultAnnouncement);
+        }
+        //disabled draw button
+        stopButton.disabled = true;
+        if (stopButton.disabled = true) {
+            stopButton.classList.add("disabled");
+        };
+        //play again button
+        let replayButton = document.createElement("button");
+        replayButton.textContent = "Replay?"
+        replayButton.classList.add("replay-button");
+        let gameControls = document.querySelectorAll("section")[3];
+        gameControls.appendChild(replayButton);
+        replayButton.addEventListener("click", () => {
+            window.location.reload();
+        });
     });
+
     //second card
     drawButton.addEventListener ("click", () => {
         playerDrawsCard();
@@ -190,5 +229,4 @@ playButton.addEventListener("click", () => {
 
 
 
-//TODO:When both players stop or bust ask if the player wants to play another round
 //TODO:Update the user what happens all the time with prompts and alerts
